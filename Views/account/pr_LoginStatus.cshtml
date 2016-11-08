@@ -1,0 +1,44 @@
+﻿
+@if (Request.IsAuthenticated)
+{
+    <div class="LoginCont">
+        @Html.ActionLink("Log out", "LogOff", "account")
+    </div>
+    
+    <div onclick="window.location='http://@System.Configuration.ConfigurationManager.AppSettings["hypsterHostName"]/account';" class="LoginCont" style=" margin-right:7px; cursor:pointer;">
+        My Account
+    </div>
+    
+}
+else
+{
+    <div class="LoginCont">
+        <a href="http://@System.Configuration.ConfigurationManager.AppSettings["hypsterHostName"]/account/Register">Register</a> 
+       &nbsp;|&nbsp;
+       <a href="http://@System.Configuration.ConfigurationManager.AppSettings["hypsterHostName"]/account/SignIn">Login</a> 
+    </div>
+}
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var player_ins = null;
+
+    function OpenExsPlayer() {
+
+        if (player_ins != null) {
+            //alert(player_ins);
+            player_ins.focus();
+        }
+        else {
+            OpenPlayer("media_type=DEFPL");
+        }
+
+    }
+</script>
+
